@@ -82,7 +82,7 @@ if (isset($_SESSION['cartcode']) && isset($_POST['fill'])) {
 <td><img src='images/$itemid.jpg' height='50' width='50'></td>
 <td>$itemname</td>
 <td><img class="minus button" src="images/minus.png">
-<input type='number' name='$itemid' value='$itemquantity' min='1' step='1'>
+<input type='number' name='$itemid' value='$itemquantity' min='1' step='1' disabled>
 <img class="plus button" src="images/plus.png">
 </td>
 <td align='right'>$itemprice</td><td align='right'>$itemsum</td>

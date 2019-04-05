@@ -1,14 +1,14 @@
 $(document).ready(function () {
-  //////LOAD CART///////////////////////////////////////////
+  //////ЗАГРУЗКА КОРЗИНЫ///////////////////////////////////////////
   $.post("postcart.php", function (data) {
     $("p.cart").html(data);
   })
-  ///////SHOW SUBCATEGORIES ON CLICK/////////////////////////
+  ///////ПОКАЗАТЬ КАТЕГОРИИ/////////////////////////
   $("p.category").each(function (index) {
     $(this).bind("click", function () {
       $ul = $(this).next("ul");
       $ul.toggle(200);
-      //////ADD EVENTS TO SUBCATEGORIES LI class=id////////////////
+      //////ДОБАВИТЬ СОБЫТИЯ////////////////
       $ul.children().each(function (index) {
         $(this).bind("click", function () {
           $subcatname = $(this).text();
@@ -19,7 +19,7 @@ $(document).ready(function () {
           });
         })
       })
-      //POST DATA AND SHOW IT IN DIV ITEMS/////////////
+      ///////////////
       $catname = $(this).text();
       $("div.items").slideUp();
       $.get("post/postitems.php", {catname: $catname}, function (data) {
@@ -82,7 +82,7 @@ function addingMassage(element)
   // }
 }
 
-//Search button
+//пОИСК
 function findItems(button) {
   search_text = $(button).prev("input").val();
   if (search_text.length > 1) {
@@ -95,7 +95,7 @@ function findItems(button) {
     });
   }
 }
-//If enter pressed
+
 $("input[name='search']").keypress(function (event) {
   var search_text = $(this).val();
   if (event.key == 'Enter' && search_text.length > 1) {
