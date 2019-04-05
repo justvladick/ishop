@@ -21,20 +21,14 @@ if ($result->num_rows > 0) {
         $name = $row['name'];
         $descr = $row['description'];
         $price = $row['price'];
-        $quant = $row['available'];
-        if ($quant > 0)
-            $buybutton = "Купить";
-        else
-            $buybutton = "Заказать";
         echo <<<_END
 <tr><th></th>
 <th colspan='3' align='center'>$name</th>
 <tr class='item'><td><img src='images/$id.jpg' height='100' width='100'></td>
 <td>$descr</td><td>Кол-во: <input type='number' id='$id' name='order_quantity' 
-value='1' onchange=setQuantity($id)
-"min='1' step='1'><br>В наличии: $quant </td>
+value='1' onchange=setQuantity($id) min='1' step='1'></td>
 <td><span class='price'>$price,00 <br><br></span>
-<input type='button' id='$id' name='buy' value='$buybutton' 
+<input type='button' id='$id' name='buy' value='Добавить в корзину' 
 onclick=buyitem(this)></td></tr>
 _END;
     }
