@@ -38,8 +38,6 @@ require_once 'sendmail.php';
                         $customer_id = $customers['id'];
                         $customeremail = $customers['email'];
                     }
-                    ///BLOCK DATABASE FROM CHANGING BY OTHER CONNECTIONS/////////////////
-                    //$connection->begin_transaction(MYSQLI_TRANS_START_READ_WRITE);
                     $result = queryMysql("SELECT items.id, items.name, quantity, "
                             . "items.price, items.available "
                             . "FROM cart JOIN items ON cart.item_id=items.id "
@@ -65,11 +63,6 @@ require_once 'sendmail.php';
                                         . "('$customer_id', '$cartcode', '$itemid', '$itemquantity', "
                                         . "'$itemprice', '$sqldate', 'ЗАКАЗАН')");
                                 //и обновляем доступное количество товаров в таблице items
-                                //РЕШЕНО НЕ ИЗМЕНЯТЬ ДОСТУПНОЕ КОЛИЧЕСТВО в таблице items
-                                //это должен делать администратор сайта в документе управления заказами
-//                                $item_avail = $available - $itemquantity;
-//                                $itemsquery = queryMysql("UPDATE items SET available='$item_avail' "
-//                                        . "WHERE id='$itemid'");
                                 $itemsum = $itemquantity * $itemprice;
                                 $sum += $itemsum;
                                 $itemsum = number_format($itemsum, 2, ",", '');
