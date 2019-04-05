@@ -2,7 +2,7 @@
 
 session_start();
 require 'functions.php';
-///ДОБАВЛЯЕМ В КОРЗИНУ//////////////////////////////////////////////////
+///ДОБАВЛЯЕМ В КОРЗИНУ////////////////////////////////////////////////// сс
 if (isset($_POST['itemid']) && isset($_POST['quantity'])) {
     $itemid = sanitizeString($_POST['itemid']);
     $quantity = sanitizeString($_POST['quantity']);
