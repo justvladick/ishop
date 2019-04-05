@@ -166,6 +166,7 @@ _END;
                     $sanemail = sanitizeString($_SESSION['email']);
                     $result = queryMysql("SELECT orders.cart_number, orders.creation_date, "
                             . "orders.status FROM orders JOIN customers ON orders.customer_id=customers.id "
+                            . "WHERE customers.email='$sanemail' "
                             . "GROUP BY orders.cart_number ORDER BY orders.creation_date DESC");
                     echo "<h2>История заказов</h2><table>";
                     while ($row = $result->fetch_array()) {

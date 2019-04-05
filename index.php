@@ -49,11 +49,7 @@ require 'functions.php';
         }
         ?>
       </nav>
-      <div> 
-        <h5 class="search">Поиск по наименованию:
-          <input type="search" name="search" size="30" maxlength="200">                      
-          <input type="button" name="find" value="Найти" onclick=findItems(this)>
-        </h5></div>
+
       <div class="items">
         <h1 class="maroon">Вас приветствует интернет-магазин ""</h1>
 
