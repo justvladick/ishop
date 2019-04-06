@@ -81,9 +81,9 @@ if (isset($_SESSION['cartcode']) && isset($_POST['fill'])) {
 <tr class='item' id="$itemid">
 <td><img src='images/$itemid.jpg' height='50' width='50'></td>
 <td>$itemname</td>
-<td><img class="minus button" src="images/minus.png">
+<td><input class="minus button" type="button">
 <input type='number' name='$itemid' value='$itemquantity' min='1' step='1' disabled>
-<img class="plus button" src="images/plus.png">
+<input class="plus button" type="button">
 </td>
 <td align='right'>$itemprice</td><td align='right'>$itemsum</td>
 <td align='right'><input class='cross button' type="button" name="delete" ></td></tr>

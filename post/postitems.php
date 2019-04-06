@@ -5,14 +5,16 @@ require '../functions.php';
 
 if (isset($_GET['catname'])) {
     $catname = sanitizeString($_GET['catname']);
-    $result = queryMysql("SELECT * FROM items WHERE category='$catname' ORDER BY name");
+    $result = queryMysql("SELECT * FROM items WHERE category='$catname' ORDER BY id");
 } elseif (isset($_GET['subcatname'])) {
     $subcatname = sanitizeString($_GET['subcatname']);
-    $result = queryMysql("SELECT * FROM items WHERE subcategory='$subcatname' ORDER BY name");
+    $result = queryMysql("SELECT * FROM items WHERE subcategory='$subcatname' ORDER BY id");
 } elseif (isset($_GET['searchtext'])) {
     $search = sanitizeString($_GET['searchtext']);
      $result = queryMysql("SELECT * FROM items WHERE name LIKE '%$search%' OR description LIKE '%$search%' "
-             . "OR category LIKE '%$search%' OR subcategory LIKE '%$search%' ORDER BY name");
+             . "OR category LIKE '%$search%' OR subcategory LIKE '%$search%' ");
+} else {
+    $result = queryMysql("SELECT * FROM items ORDER BY id");
 }
 if ($result->num_rows > 0) {
     echo "<table>";
@@ -33,11 +35,5 @@ onclick=buyitem(this)></td></tr>
 _END;
     }
     echo "</table>";
-    //////////////////EVENTS PRESSING BUY BUTTON/////////////////////////////////////
-    echo <<<_END
-<script>
-
-</script>
-_END;
 }
 
