@@ -172,10 +172,10 @@ _END;
                     while ($row = $result->fetch_array()) {
                         $ordercart_number = $row[0];
                         echo "<tr><th class='hover' colspan='4' onclick=loadOrderDetails(this)>Заказ №"
-                        . $ordercart_number . " от " . $row[1] . " Статус: " . $row[2];
+                        . $ordercart_number . " от " . $row[1];
                         if ($row[2] === "ЗАКАЗАН")
                             echo "<th class='hover' id=$ordercart_number "
-                            . "onclick=deleteOrder(this)>Отменить</th>";
+                            . "</th>";
                         else
                             echo "<th></th>";
                         echo "</tr>";
